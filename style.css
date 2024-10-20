@@ -4,9 +4,12 @@ body {
 }
 
 #header {
+    width: 100%;
+    height: auto;
     display: flex;
     justify-content: center;
     font-size: 22px;
+    flex: 0, 1, auto;
 }
 
 #container {

@@ -1,3 +1,14 @@
 body {
     font-family: "Playwrite GB S";
+    background-color: #94c1f4;
+
+#header {
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
 }

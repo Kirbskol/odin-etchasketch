@@ -8,26 +8,34 @@ const rangeSize = document.querySelector(".menu__range__size");
 let canvasSize = 16;
 let canvasSquare = [];
 let canvasRow = [];
+let canvasWidth = getComputedStyle(canvas).width;
+let canvasSquareSize = Math.floor(canvasWidth.replace("px","") / canvasSize);
+makeCanvas()
 
 
 
 rangeSize.addEventListener("click", function() {
     rangeValue.textContent = `${rangeSize.value}x${rangeSize.value}`;
     canvasSize = rangeSize.value;
+    canvasSquareSize = Math.floor(canvasWidth.replace("px","") / canvasSize);
+    makeCanvas();
 });
 
 function makeCanvas() {
+    while (canvas.hasChildNodes()){
+        canvas.removeChild(canvas.firstChild);
+    }
     for (let x = 0; x < canvasSize; x++){
         canvasRow[x] = document.createElement("div");
+        canvas.appendChild(canvasRow[x]);
         for (let y = 0; y < canvasSize; y++){
             canvasSquare[y] = document.createElement("div");
             canvasSquare[y].style.border = "solid #000000";
             canvasSquare[y].style.borderWidth = "1px";
-            canvasSquare[y].style.width = "8px";
-            canvasSquare[y].style.height = "8px";
+            canvasSquare[y].style.width = canvasSquareSize + "px";
+            canvasSquare[y].style.height = canvasSquareSize + "px";
             canvasRow[x].appendChild(canvasSquare[y]);
         }
-        canvas.appendChild(canvasRow[x]);
     }
 }
 

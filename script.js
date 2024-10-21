@@ -40,5 +40,7 @@ function makeCanvas() {
 }
 
 menuReset.addEventListener("click", function() {
+    canvasSize = 16;
+    canvasSquareSize = Math.floor(canvasWidth.replace("px","") / canvasSize);
     makeCanvas();
 });

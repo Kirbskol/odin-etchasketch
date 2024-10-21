@@ -21,7 +21,10 @@
     </div>
     <div id="container">
         <div class="menu">
-            <div class="menu__color"></div>
+            <div class="menu__color">
+                <label for="menu__color__choice" class="menu__color__title">Color</label>
+                <input type="color" class="menu__color__choice">
+            </div>
             <div class="menu__range">
                 <p id="rangeValue">Size</p>
                 <input type="range" class="menu__range__size" min="16" max="100" oninput="rangeValue.innerText = this.value">

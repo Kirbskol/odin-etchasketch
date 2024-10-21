@@ -171,7 +171,6 @@ a {
 .canvas {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     background-color: rgba(75, 87, 109, 0.331);
     height: 400px;
     width: 80%;

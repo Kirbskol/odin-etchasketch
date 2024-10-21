@@ -174,11 +174,15 @@ a {
     display: flex;
     justify-content: center;
     background-color: white;
-    height: 100%;
+    height: auto;
     width: 100%;
     max-width: 55em;
     border: 4px solid black;
     border-top: none;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
+}
+
+.canvas__square, .canvas__row:hover{
+    cursor: crosshair;
 }

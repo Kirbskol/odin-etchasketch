@@ -27,10 +27,12 @@ function makeCanvas() {
     }
     for (let x = 0; x < canvasSize; x++){
         canvasRow[x] = document.createElement("div");
+        canvasRow[x].className = "canvas__row";
         canvasRow[x].style.flex = "1";
         canvas.appendChild(canvasRow[x]);
         for (let y = 0; y < canvasSize; y++){
             canvasSquare[y] = document.createElement("div");
+            canvasSquare[y].className = "canvas__square";
             canvasSquare[y].style.backgroundColor = "white";
             canvasSquare[y].style.width = canvasSquareSize + "px";
             canvasSquare[y].style.height = canvasSquareSize + "px";

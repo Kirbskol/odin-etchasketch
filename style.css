@@ -73,6 +73,7 @@ a {
     align-items: center;
     padding-top: 1em;
     padding-bottom: 1em;
+    flex-shrink: 0;
 }
 
 .menu__color {
@@ -85,7 +86,6 @@ a {
     align-items: center;
     justify-content: center;
     gap: 4px;
-    flex: 0, 1, auto;
 }
 
 .menu__color__title {
@@ -213,6 +213,7 @@ a {
     border-left: none;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
+    flex-shrink: 0;
 }
 
 .canvas__square:hover{

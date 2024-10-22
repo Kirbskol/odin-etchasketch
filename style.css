@@ -170,6 +170,39 @@ a {
     box-shadow: 0 0 8px #94c1f4;
 }
 
+.menu__rainbow {
+    font-family: "Playwrite GB S";
+    font-size: 12px;
+    font-weight: 900;
+    background-image: linear-gradient( 89.7deg, rgba(223,0,0,1) 2.7%, 
+                                                rgba(214,91,0,1) 15.1%, 
+                                                rgba(233,245,0,1) 29.5%, 
+                                                rgba(23,255,17,1) 45.8%, 
+                                                rgba(29,255,255,1) 61.5%, 
+                                                rgba(5,17,255,1) 76.4%, 
+                                                rgba(202,0,253,1) 92.4% );
+    height: auto;
+    width: 100%;
+    max-width: 7.4em;
+    border-radius: 10px;
+    border: 3px solid black;
+    padding: 4px;
+    flex: 0, 1, auto;
+    margin-right: 0.8em;
+}
+
+.menu__rainbow:hover {
+    background-image: linear-gradient( 89.7deg, rgba(202,0,253,1) 2.7%, 
+                                                rgba(5,17,255,1) 15.1%, 
+                                                rgba(29,255,255,1) 29.5%, 
+                                                rgba(23,255,17,1) 45.8%, 
+                                                rgba(233,245,0,1) 61.5%, 
+                                                rgba(214,91,0,1) 76.4%, 
+                                                rgba(223,0,0,1) 92.4% );
+    cursor: pointer;
+    box-shadow: 0 0 8px #94c1f4;
+}
+
 .canvas {
     display: flex;
     flex-wrap: wrap;
@@ -183,6 +216,6 @@ a {
     border-top-right-radius: 10px;
 }
 
-/* .canvas__square:hover{
+.canvas__square:hover{
     cursor: crosshair;
-} */
+}

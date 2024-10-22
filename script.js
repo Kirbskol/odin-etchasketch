@@ -4,17 +4,22 @@ const menuReset = document.querySelector(".menu__reset");
 const canvas = document.querySelector(".canvas");
 const rangeValue = document.querySelector("#rangeValue");
 const rangeSize = document.querySelector(".menu__range__size");
+const menuRainbow = document.querySelector(".menu__rainbow");
 let canvasSize = 16;
 let canvasWidth = getComputedStyle(canvas).width;
 let canvasSquareSize = (canvasWidth.replace("px","") / canvasSize);
 let canvasColor = "#000000"
 let menuColor = document.querySelector("#menu__color");
+let rainbowColors = ["#e81416","#ffa500", "#faeb36", "#79c314", "#487de7", "#4b369d", "#70369d"];
+let rainbowBool = true;
+let isSketching = false;
 
 window.onload = makeCanvas();
 
 menuColor.addEventListener("input", function() {
     colorValue.textContent = `${menuColor.value.toUpperCase()}`;
     canvasColor = colorValue.textContent;
+    rainbowBool = false;
 })
 
 rangeSize.addEventListener("click", function() {
@@ -25,6 +30,10 @@ rangeSize.addEventListener("click", function() {
 
 menuReset.addEventListener("click", function() {
     makeCanvas();
+});
+
+menuRainbow.addEventListener("click", function() {
+    colorValue.textContent = "#RAINBOW";
 });
 
 function makeCanvas() {
@@ -39,9 +48,20 @@ function makeCanvas() {
         canvasSquare.style.flexBasis = canvasSquareSize + "px"
         canvasSquare.style.width = canvasSquareSize + "px";
         canvasSquare.style.height = canvasSquareSize + "px";
-        canvas.appendChild(canvasSquare);
-        canvasSquare.addEventListener("mouseenter", (event) => {
-        canvasSquare.style.backgroundColor = `${canvasColor}`;
-        });
+        canvas.appendChild(canvasSquare); 
+        canvasSquare.addEventListener("mouseenter", () => isSketching = true);
+        canvasSquare.addEventListener("mousemove", makeSketch);
+    }
+}
+
+function makeSketch(event) {
+    if (isSketching){
+        if (colorValue.textContent === "#RAINBOW"){
+            let rainbowColor = Math.floor(Math.random()*16777215).toString(16);
+            event.target.style.backgroundColor = `#${rainbowColor}`;
+        }
+        else {
+            event.target.style.backgroundColor = `${canvasColor}`;
+        }
     }
 }

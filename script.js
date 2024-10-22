@@ -6,8 +6,6 @@ const canvas = document.querySelector(".canvas");
 const rangeValue = document.querySelector("#rangeValue");
 const rangeSize = document.querySelector(".menu__range__size");
 let canvasSize = 16;
-let canvasSquare = [];
-let canvasRow = [];
 let canvasWidth = getComputedStyle(canvas).width;
 let canvasSquareSize = (canvasWidth.replace("px","") / canvasSize);
 
@@ -32,12 +30,12 @@ function makeCanvas() {
         canvasSquare.style.width = canvasSquareSize + "px";
         canvasSquare.style.height = canvasSquareSize + "px";
         canvas.appendChild(canvasSquare);
+        canvasSquare.addEventListener("mouseenter", (event) => {
+            canvasSquare.style.backgroundColor = "black";
+        });
     }
 }
 
 menuReset.addEventListener("click", function() {
-    canvasSize = 16;
-    rangeValue.textContent = `16x16`;
-    canvasSquareSize = Math.floor(canvasWidth.replace("px","") / canvasSize);
     makeCanvas();
 });

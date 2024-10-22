@@ -9,40 +9,35 @@ let canvasSize = 16;
 let canvasSquare = [];
 let canvasRow = [];
 let canvasWidth = getComputedStyle(canvas).width;
-let canvasSquareSize = Math.floor(canvasWidth.replace("px","") / canvasSize);
-makeCanvas()
+let canvasSquareSize = (canvasWidth.replace("px","") / canvasSize);
 
-
+window.onload = makeCanvas();
 
 rangeSize.addEventListener("click", function() {
     rangeValue.textContent = `${rangeSize.value}x${rangeSize.value}`;
     canvasSize = rangeSize.value;
-    canvasSquareSize = Math.floor(canvasWidth.replace("px","") / canvasSize);
     makeCanvas();
 });
 
 function makeCanvas() {
-    while (canvas.hasChildNodes()){
-        canvas.removeChild(canvas.firstChild);
-    }
-    for (let x = 0; x < canvasSize; x++){
-        canvasRow[x] = document.createElement("div");
-        canvasRow[x].className = "canvas__row";
-        canvasRow[x].style.flex = "1";
-        canvas.appendChild(canvasRow[x]);
-        for (let y = 0; y < canvasSize; y++){
-            canvasSquare[y] = document.createElement("div");
-            canvasSquare[y].className = "canvas__square";
-            canvasSquare[y].style.backgroundColor = "white";
-            canvasSquare[y].style.width = canvasSquareSize + "px";
-            canvasSquare[y].style.height = canvasSquareSize + "px";
-            canvasRow[x].appendChild(canvasSquare[y]);
-        }
+    canvas.innerHTML = '';
+    canvasWidth = getComputedStyle(canvas).width;
+    canvasSquareSize = (canvasWidth.replace("px","") / canvasSize);
+    for (let y = 0; y < canvasSize * canvasSize; y++){
+        const canvasSquare = document.createElement("div");
+        canvasSquare.style.boxSizing = "border-box";
+        canvasSquare.className = "canvas__square";
+        canvasSquare.style.backgroundColor = "white";
+        canvasSquare.style.flexBasis = canvasSquareSize + "px"
+        canvasSquare.style.width = canvasSquareSize + "px";
+        canvasSquare.style.height = canvasSquareSize + "px";
+        canvas.appendChild(canvasSquare);
     }
 }
 
 menuReset.addEventListener("click", function() {
     canvasSize = 16;
+    rangeValue.textContent = `16x16`;
     canvasSquareSize = Math.floor(canvasWidth.replace("px","") / canvasSize);
     makeCanvas();
 });

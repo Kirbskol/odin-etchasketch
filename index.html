@@ -23,7 +23,8 @@
         <div class="menu">
             <div class="menu__color">
                 <label for="menu__color__choice" class="menu__color__title">Color</label>
-                <input type="color" class="menu__color__choice" value="#000000">
+                <input type="color" id="menu__color" class="menu__color__choice" value="#000000" oninput="colorValue.innerText = this.value">
+                <p id="colorValue">#000000</p>
             </div>
             <div class="menu__range">
                 <p id="rangeValue">16x16</p>

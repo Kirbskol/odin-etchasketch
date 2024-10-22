@@ -1,5 +1,4 @@
 const menu = document.querySelector(".menu");
-const menuColor = document.querySelector(".menu__color");
 const menuSize = document.querySelector(".menu__range");
 const menuReset = document.querySelector(".menu__reset");
 const canvas = document.querySelector(".canvas");
@@ -8,12 +7,23 @@ const rangeSize = document.querySelector(".menu__range__size");
 let canvasSize = 16;
 let canvasWidth = getComputedStyle(canvas).width;
 let canvasSquareSize = (canvasWidth.replace("px","") / canvasSize);
+let canvasColor = "#000000"
+let menuColor = document.querySelector("#menu__color");
 
 window.onload = makeCanvas();
+
+menuColor.addEventListener("input", function() {
+    colorValue.textContent = `${menuColor.value.toUpperCase()}`;
+    canvasColor = colorValue.textContent;
+})
 
 rangeSize.addEventListener("click", function() {
     rangeValue.textContent = `${rangeSize.value}x${rangeSize.value}`;
     canvasSize = rangeSize.value;
+    makeCanvas();
+});
+
+menuReset.addEventListener("click", function() {
     makeCanvas();
 });
 
@@ -31,11 +41,7 @@ function makeCanvas() {
         canvasSquare.style.height = canvasSquareSize + "px";
         canvas.appendChild(canvasSquare);
         canvasSquare.addEventListener("mouseenter", (event) => {
-            canvasSquare.style.backgroundColor = "black";
+        canvasSquare.style.backgroundColor = `${canvasColor}`;
         });
     }
 }
-
-menuReset.addEventListener("click", function() {
-    makeCanvas();
-});

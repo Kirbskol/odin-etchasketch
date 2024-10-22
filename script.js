@@ -10,8 +10,6 @@ let canvasWidth = getComputedStyle(canvas).width;
 let canvasSquareSize = (canvasWidth.replace("px","") / canvasSize);
 let canvasColor = "#000000"
 let menuColor = document.querySelector("#menu__color");
-let rainbowColors = ["#e81416","#ffa500", "#faeb36", "#79c314", "#487de7", "#4b369d", "#70369d"];
-let rainbowBool = true;
 let isSketching = false;
 
 window.onload = makeCanvas();
@@ -19,7 +17,6 @@ window.onload = makeCanvas();
 menuColor.addEventListener("input", function() {
     colorValue.textContent = `${menuColor.value.toUpperCase()}`;
     canvasColor = colorValue.textContent;
-    rainbowBool = false;
 })
 
 rangeSize.addEventListener("click", function() {
@@ -48,9 +45,9 @@ function makeCanvas() {
         canvasSquare.style.flexBasis = canvasSquareSize + "px"
         canvasSquare.style.width = canvasSquareSize + "px";
         canvasSquare.style.height = canvasSquareSize + "px";
-        canvas.appendChild(canvasSquare); 
         canvasSquare.addEventListener("mouseenter", () => isSketching = true);
         canvasSquare.addEventListener("mousemove", makeSketch);
+        canvas.appendChild(canvasSquare); 
     }
 }
 

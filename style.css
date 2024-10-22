@@ -206,7 +206,6 @@ a {
 .canvas {
     display: flex;
     flex-wrap: wrap;
-    background-color: white;
     height: auto;
     width: 100%;
     max-width: 25em;

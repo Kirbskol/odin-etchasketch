@@ -45,8 +45,9 @@ function makeCanvas() {
         canvasSquare.style.flexBasis = canvasSquareSize + "px"
         canvasSquare.style.width = canvasSquareSize + "px";
         canvasSquare.style.height = canvasSquareSize + "px";
-        canvasSquare.addEventListener("mouseenter", () => isSketching = true);
+        canvasSquare.addEventListener("mousedown", () => isSketching = true);
         canvasSquare.addEventListener("mousemove", makeSketch);
+        canvasSquare.addEventListener("mouseup", () => isSketching = false);
         canvas.appendChild(canvasSquare); 
     }
 }
